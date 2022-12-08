@@ -38,4 +38,14 @@ defmodule D1 do
 
     Enum.reduce(calories, 0, calculate_total)
   end
+
+  def part2(file) do
+    file
+    |> split_into_rows()
+    |> split_into_arrays()
+    |> lists_to_max()
+    |> Enum.sort_by(& &1, :desc)
+    |> Enum.take(3)
+    |> Enum.sum()
+  end
 end
