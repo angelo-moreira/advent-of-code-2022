@@ -21,15 +21,11 @@ defmodule D1 do
     |> Enum.reject(&empty_list?/1)
   end
 
-  def empty_list?([""]),
-    do: true
-
+  def empty_list?([""]), do: true
   def empty_list?(_calories), do: false
 
-  def lists_to_max(calories_list) do
-    calories_list
-    |> Enum.map(&total_calories/1)
-  end
+  def lists_to_max(calories_list),
+    do: Enum.map(calories_list, &total_calories/1)
 
   def total_calories(calories) do
     calculate_total = fn calory, total ->
